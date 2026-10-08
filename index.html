@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chai Theory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="min-h-screen bg-white">
+    <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="#home" class="flex items-center gap-2">
+              <img src="logo.png" alt="Chai Theory Logo" style="height:65px;width:auto;" />
+              <span class="text-2xl font-semibold text-orange-700">KIT Bites & Bytes</span>
+            </a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="text-gray-800 hover:text-orange-700">Home</a>
+            <a href="#menu" class="text-gray-800 hover:text-orange-700">Menu</a>
+            <a href="#about" class="text-gray-800 hover:text-orange-700">About</a>
+            <a href="#contact" class="text-gray-800 hover:text-orange-700">Contact</a>
+            <button id="cart-button" class="relative p-2 text-gray-800 hover:text-orange-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hidden">0</span>
+            </button>
+            <button id="login-btn" class="ml-4 bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-800 transition-colors">Login</button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-gray-800 hover:text-orange-700 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+              </svg>
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="#home" class="block px-3 py-2 text-gray-800 hover:text-orange-700">Home</a>
+          <a href="#menu" class="block px-3 py-2 text-gray-800 hover:text-orange-700">Menu</a>
+          <a href="#about" class="block px-3 py-2 text-gray-800 hover:text-orange-700">About</a>
+          <a href="#contact" class="block px-3 py-2 text-gray-800 hover:text-orange-700">Contact</a>
+          <div class="px-3 py-2">
+            <button id="mobile-cart-button" class="relative p-2 text-gray-800 hover:text-orange-700 transition-colors flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              <span>Cart</span>
+              <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-orange-700 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hidden">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <div id="home" class="relative h-screen">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/af/8e/fa/af8efaa2c36783b0a7c318574fe53192.jpg')">
+          <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div class="relative h-full flex items-center justify-center text-center">
+          <div class="max-w-3xl px-4">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Welcome to KIT Bites & Bytes</h1>
+            <p class="text-xl text-white/90 mb-8">
+              From quick campus bites to smart digital ordering, experience the best of KITCOEK food court culture.
+            </p>
+            <div class="space-x-4">
+              <a href="#menu" class="inline-block bg-orange-700 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-orange-800 transition-colors">
+                View Menu
+              </a>
+              <a href="#contact" class="inline-block bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white/20 transition-colors">
+                Visit Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Section -->
+      <section id="menu" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Menu</h2>
+            <p class="text-lg text-gray-600">Explore daily fresh delicacies and quick campus snacks at KIT Food Court.</p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-12" id="menu-categories">
+            <!-- Menu category buttons will be inserted here by JavaScript -->
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-items">
+            <!-- Menu items will be inserted here by JavaScript -->
+          </div>
+          <div class="flex justify-center mt-8">
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">About Us</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Discover smart, fast, and effortless campus dining at KIT Food Court. </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img src="https://i.pinimg.com/736x/dc/15/76/dc157628b1725fdb614f9eb87e1be03d.jpg" alt="Chai preparation" class="rounded-lg shadow-lg">
+            </div>
+            <div>
+              <h3 class="text-2xl font-semibold text-gray-900 mb-4">Our Story</h3>
+              <p class="text-gray-600 mb-6">
+                Founded in 2026, KIT Food Court Management System began with a simple vision to bring seamless digital ordering to modern campus dining. What started as a student initiative at KITCOEK, experimenting with smart queue management and dynamic menu systems, has transformed how meals are served on campus.
+              </p>
+              <p class="text-gray-600 mb-6">
+                Today, we pride ourselves on serving not just quick meals, but optimized campus dining experiences. Each meal and order is processed with quality ingredients, fast response times, and the perfect balance of technology and culinary innovation.
+              </p>
+              <div class="grid grid-cols-2 gap-6 mt-8">
+                <div class="text-center">
+                  <p class="text-4xl font-bold text-orange-700">50+</p>
+                  <p class="text-gray-600">Unique Blends</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-4xl font-bold text-orange-700">1</p>
+                  <p class="text-gray-600">Locations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Visit & Contact</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Find us at our locations or get in touch</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+              <h3 class="text-2xl font-semibold text-gray-900 mb-6">Your Cart</h3>
+              <div id="cart-container">
+                <!-- Cart content will be inserted here by JavaScript -->
+              </div>
+            </div>
+
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Visit Us</h3>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-700 mt-1 mr-3">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <div>
+                      <p class="font-medium">KITCOEK Campus - Main Food Court</p>
+                      <p class="text-gray-600">KIT's College of Engineering (Autonomous),</p>
+                      <p class="text-gray-600">RS No. 199, Gokul Shirgaon, Kolhapur, Maharashtra 416234</p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Contact Info</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-700 mr-3">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <p class="text-gray-600">+91 98765 43210</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-700 mr-3">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    <p class="text-gray-600"> support@kitbites.ac.in</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">KIT Bites & Bytes</h3>
+            <p class="text-gray-400 mb-6">Experience the perfect blend of tradition and modernity in every cup.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Locations</h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-orange-500">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>KITCOEK Campus - Main Food Court</span>
+              </div>
+             
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-orange-500">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>+91 98765 43210</span>
+              </div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-orange-500">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span> support@kitbites.ac.in</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <p>&copy; <span id="current-year"></span> KIT Bites & Bytes</p>
+          <p>Made With ❤️ in India</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Login/Signup Modal (coffee-shop themed, dark) -->
+  <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center auth-modal-overlay hidden">
+    <div class="modal-effect"></div>
+    <div class="auth-modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="close-auth-modal" class="auth-close" aria-label="Close">&times;</button>
+      <h2 class="auth-title" id="modal-title">LOGIN OR SIGN UP TO START ORDERING</h2>
+
+      <form id="auth-form" class="auth-form">
+        <div class="auth-field">
+          <label for="auth-email" class="auth-label">What's your e-mail?</label>
+          <input type="email" id="auth-email" name="email" placeholder="E-mail" class="auth-input" required />
+        </div>
+        <div class="auth-field">
+          <label for="auth-password" class="auth-label">Your password?</label>
+          <input type="password" id="auth-password" name="password" placeholder="Password" class="auth-input" required />
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="auth-submit">Login</button>
+      </form>
+
+      <div class="auth-footer">
+        <div id="auth-footer-text" class="auth-footer-text"></div>
+        <button id="auth-footer-action" class="auth-link">Create Account</button>
+      </div>
+    </div>
+  </div>
+ <script src="script.js"></script>>
+  
+</body>
+</html>
